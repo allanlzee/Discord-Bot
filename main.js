@@ -176,4 +176,4 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.4zIlCox6UYhWNlmbXVF-n-OyStM'); 
+client.login('TOKEN'); 
