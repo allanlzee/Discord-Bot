@@ -1,0 +1,22 @@
+{
+  "name": "discordbotrevised",
+  "version": "1.0.0",
+  "description": "DiscordBotRevised",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allanlzee/Discord-Bot-NodeJS.git"
+  },
+  "author": "Allan Z.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allanlzee/Discord-Bot-NodeJS/issues"
+  },
+  "homepage": "https://github.com/allanlzee/Discord-Bot-NodeJS#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
