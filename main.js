@@ -133,4 +133,4 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('TOKEN'); 
+client.login('BOT_TOKEN'); 
