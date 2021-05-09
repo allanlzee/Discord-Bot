@@ -130,6 +130,10 @@ function processCommand(message, args, command) {
             client.commands.get('join_voice').execute(message, args); 
             break;
 
+        case "leave_voice":
+            client.commands.get('leave_voice').execute(message, args); 
+            break;
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -138,4 +142,4 @@ function processCommand(message, args, command) {
 }
 
 client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM'); 
-
+// Regenerate Token Frequently

@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/allanlzee/Discord-Bot-NodeJS#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "@discordjs/opus": "^0.5.0",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.3.0",
+    "yt-search": "^2.8.0",
+    "ytdl-core": "^4.7.0"
   }
 }

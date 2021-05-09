@@ -1,5 +1,5 @@
-//const ytdt = require('ytdl-core'); 
-//const ytSearch = require('yt-search'); 
+const ytdt = require('ytdl-core'); 
+const ytSearch = require('yt-search'); 
 
 module.exports = {
     name: 'join_voice',
@@ -25,27 +25,25 @@ module.exports = {
             return; 
         }
 
-        /* if (!args.length) {
+        if (!args.length) {
             message.channel.reply("You have not specified an audio clip."); 
             return; 
-        } ONLY IF YOU ARE PLAYING SOMETHING (using ffmpeg) */
-
-        // If using ffmpeg (open source, slightly risky)
+        } 
 
         const connection = await voiceChannel.join(); 
         message.channel.send("Joining Channel! 🤠 "); 
 
-        /* const videoFinder = async (query) => {
+        const videoFinder = async (query) => {
             const videoResult = await ytSearch(query); 
 
             return (videoResult.videos.length > 1) ? videoResult.videos[0] : null;
 
-        } */
+        }
 
-        /* const video = await videoFinder(args.join(' ')); 
+        const video = await videoFinder(args.join(' ')); 
 
         if(video) {
-            const stream = ytdl(video.url, {filer: 'audioonly'});
+            const stream = ytdt(video.url, {filer: 'audioonly'});
 
             connection.play(stream, {seek: 0, volume: 1})
             .on('finish', () => {
@@ -55,6 +53,6 @@ module.exports = {
             await message.reply(`:thumbsup: Now Playing ***${video.title}***`);
         } else {
             message.channel.send('No video results found.'); 
-        } */
+        }
     }
 }
