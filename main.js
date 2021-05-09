@@ -126,6 +126,10 @@ function processCommand(message, args, command) {
             client.commands.get('remove_role').execute(message, args);
             break; 
 
+        case "join_voice":
+            client.commands.get('join_voice').execute(message, args); 
+            break;
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -133,5 +137,5 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM'); 
+client.login('BOT_TOKEN'); 
 //
