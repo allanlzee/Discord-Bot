@@ -81,7 +81,7 @@ function processCommand(message, args, command) {
         case "hello":
             client.commands.get('hello').execute(message, args, author);  
             break; 
-            
+
         case "bot_code":
             client.commands.get('bot_code').execute(message, args); 
             break; 
@@ -89,10 +89,6 @@ function processCommand(message, args, command) {
         case "add_role":
             client.commands.get('add_role').execute(message, args);
             break;
-
-        case "remove_role":
-            client.commands.get('remove_role').execute(message, args); 
-            break; 
 
         case "add_role_admin":
             client.commands.get('add_role_admin').execute(message, args); 
@@ -111,15 +107,25 @@ function processCommand(message, args, command) {
             break; 
 
         case "kick":
-            client.commands.get('kick').execute(message, args); 
-            break; 
+            client.commands.get('kick').execute(message, args);
+            break;  
         
         case "ban":
             client.commands.get('ban').execute(message, args, user, userTag);
             break; 
+
         case "roles_permissions":
             client.commands.get('roles_permissions').execute(message, args); 
             break; 
+
+        case "commands":
+            client.commands.get('commands').execute(message, args, Discord); 
+            break; 
+
+        case "remove_role":
+            client.commands.get('remove_role').execute(message, args);
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -127,5 +133,4 @@ function processCommand(message, args, command) {
 
 }
 
-client.login("ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM"); 
-// ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM
+client.login('TOKEN'); 
