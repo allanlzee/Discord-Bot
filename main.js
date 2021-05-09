@@ -115,6 +115,10 @@ function processCommand(message, args, command) {
                 }
             } */
             break;
+
+        case "remove_role":
+            client.commands.get('remove_role').execute(message, args); 
+            break; 
         case "add_role_admin":
             client.commands.get('add_role_admin').execute(message, args); 
             break; 
@@ -127,40 +131,9 @@ function processCommand(message, args, command) {
         case "roles":
             client.commands.get('roles').execute(message, args); 
             break; 
+
         case "kick":
-            /* const user = message.mentions.users.first(); 
-            const userTag = user.tag; 
-            client.commands.get('kick').execute(message, args, argument, userTag);  */
-            if (!argument) {
-                message.channel.send("There was no user specified.");
-            }
-
-            const user = fullCommand.mentions.users.first(); 
-            const userTag = user.tag; 
-            
-            if (user) {
-                const member = message.guild.member(user); 
-
-                if (member) {
-                    member.kick("You were kicked from @allanlzee 's server.").then(() => {
-                        message.reply(`Successfully kicked ${userTag}`); 
-                    }).catch(err => {
-                        message.reply(`Unable to kick ${userTag}`);
-                        console.log(err); 
-                    });
-                } else {
-                    message.reply(`User ${userTag} is not in this server.`);
-                }
-            } else {
-                try {
-                    member.kick("You were kicked."); 
-                } 
-                catch (err) {
-                    message.reply(`User ${userTag} is not in this server.`); 
-                    console.log(err); 
-                }
-                message.reply(`User ${userTag} is not in this server.`); 
-            }
+            client.commands.get('kick').execute(message, args); 
             break; 
         
         case "ban":
