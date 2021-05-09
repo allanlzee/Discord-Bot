@@ -25,13 +25,9 @@ module.exports = {
                 message.reply(`User ${userTag} is not in this server.`); 
             }
         } else {
-            try {
-                member.kick("You were kicked."); 
-            } 
-            catch (err) {
-                message.reply(`User ${userTag} is not in this server.`); 
-                console.log(err); 
-            }
+            message.reply(`User ${userTag} is not in this server.`); 
+            console.log(err); 
+            
             message.reply(`User ${userTag} is not in this server.`); 
         }
     }

@@ -60,20 +60,9 @@ client.on('message', (message) => {
 
 
 function processCommand(message, args, command) {
-    const firstArgument = args[0]; 
-    let secondArgument = undefined; 
-    let thirdArgument = undefined; 
 
     console.log(args);
     console.log(command);
-
-    if (arguments.length >= 2) {
-        secondArgument = args[1]; 
-    }
-
-    if (arguments.length >= 3) {
-        thirdArgument = args[2]; 
-    }
     
     let author = message.author.toString();
 
@@ -134,6 +123,14 @@ function processCommand(message, args, command) {
             client.commands.get('leave_voice').execute(message, args); 
             break;
 
+        case "switch":
+            client.commands.get('switch').execute(message, args); 
+            break; 
+
+        case "pause":
+            client.commands.get('pause').execute(message, args); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -141,5 +138,5 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM'); 
+client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.p32Ghb1Ev7lHA512Xj64luve4tw'); 
 // Regenerate Token Frequently
