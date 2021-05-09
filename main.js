@@ -81,94 +81,51 @@ function processCommand(message, args, command) {
         case "hello":
             client.commands.get('hello').execute(message, args, author);  
             break; 
+
         case "bot_code":
             client.commands.get('bot_code').execute(message, args); 
             break; 
-        case "add_role":
-            let oldMember = message.mentions.users.first(); 
-            //let newMember = message.guild.member(oldMember);
-            //let newRole = secondArgument; 
 
+        case "add_role":
             client.commands.get('add_role').execute(message, args);
-            
-            /* if (message.member.roles.cache.has(admin)) {
-                switch(newRole) {
-                    case 'Programmer':
-                        newMember.roles.add(programmer).catch(console.error);
-                        message.channel.send(`Added role Programmer to ${newMember}`); 
-                        break; 
-                    case 'Functional-Bot':
-                        newMember.roles.add(functionalBot).catch(console.error); 
-                        message.channel.send(`Added role Functional Bot to ${newMember}`); 
-                        break; 
-                    case 'BETA-Bot':
-                        newMember.roles.add(BETAbot).catch(console.error);
-                        message.channel.send(`Added role BETA Bot to ${newMember}`); 
-                        break;
-                    case 'Closed-Bot':
-                        newMember.roles.add(closedBot).catch(console.error);
-                        message.channel.send(`Added role Closed Bot to ${newMember}`); 
-                        break; 
-                    default:
-                        message.channel.send(`Error: Cannot add role ${newRole} to ${newMember}`); 
-                        break; 
-                }
-            } */
             break;
+
         case "add_role_admin":
             client.commands.get('add_role_admin').execute(message, args); 
             break; 
+
         case "kick_permissions":
             client.commands.get('kick_permissions').execute(message, args); 
             break;
+
         case "voice_permissions":
             client.commands.get('voice_permissions').execute(message, args); 
             break; 
+
         case "roles":
             client.commands.get('roles').execute(message, args); 
             break; 
+
         case "kick":
-            /* const user = message.mentions.users.first(); 
-            const userTag = user.tag; 
-            client.commands.get('kick').execute(message, args, argument, userTag);  */
-            if (!argument) {
-                message.channel.send("There was no user specified.");
-            }
-
-            const user = fullCommand.mentions.users.first(); 
-            const userTag = user.tag; 
-            
-            if (user) {
-                const member = message.guild.member(user); 
-
-                if (member) {
-                    member.kick("You were kicked from @allanlzee 's server.").then(() => {
-                        message.reply(`Successfully kicked ${userTag}`); 
-                    }).catch(err => {
-                        message.reply(`Unable to kick ${userTag}`);
-                        console.log(err); 
-                    });
-                } else {
-                    message.reply(`User ${userTag} is not in this server.`);
-                }
-            } else {
-                try {
-                    member.kick("You were kicked."); 
-                } 
-                catch (err) {
-                    message.reply(`User ${userTag} is not in this server.`); 
-                    console.log(err); 
-                }
-                message.reply(`User ${userTag} is not in this server.`); 
-            }
-            break; 
+            client.commands.get('kick').execute(message, args);
+            break;  
         
         case "ban":
             client.commands.get('ban').execute(message, args, user, userTag);
             break; 
+
         case "roles_permissions":
             client.commands.get('roles_permissions').execute(message, args); 
             break; 
+
+        case "commands":
+            client.commands.get('commands').execute(message, args, Discord); 
+            break; 
+
+        case "remove_role":
+            client.commands.get('remove_role').execute(message, args);
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -176,4 +133,4 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.4zIlCox6UYhWNlmbXVF-n-OyStM'); 
+client.login('TOKEN'); 
