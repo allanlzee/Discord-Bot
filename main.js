@@ -81,53 +81,31 @@ function processCommand(message, args, command) {
         case "hello":
             client.commands.get('hello').execute(message, args, author);  
             break; 
+            
         case "bot_code":
             client.commands.get('bot_code').execute(message, args); 
             break; 
-        case "add_role":
-            let oldMember = message.mentions.users.first(); 
-            //let newMember = message.guild.member(oldMember);
-            //let newRole = secondArgument; 
 
+        case "add_role":
             client.commands.get('add_role').execute(message, args);
-            
-            /* if (message.member.roles.cache.has(admin)) {
-                switch(newRole) {
-                    case 'Programmer':
-                        newMember.roles.add(programmer).catch(console.error);
-                        message.channel.send(`Added role Programmer to ${newMember}`); 
-                        break; 
-                    case 'Functional-Bot':
-                        newMember.roles.add(functionalBot).catch(console.error); 
-                        message.channel.send(`Added role Functional Bot to ${newMember}`); 
-                        break; 
-                    case 'BETA-Bot':
-                        newMember.roles.add(BETAbot).catch(console.error);
-                        message.channel.send(`Added role BETA Bot to ${newMember}`); 
-                        break;
-                    case 'Closed-Bot':
-                        newMember.roles.add(closedBot).catch(console.error);
-                        message.channel.send(`Added role Closed Bot to ${newMember}`); 
-                        break; 
-                    default:
-                        message.channel.send(`Error: Cannot add role ${newRole} to ${newMember}`); 
-                        break; 
-                }
-            } */
             break;
 
         case "remove_role":
             client.commands.get('remove_role').execute(message, args); 
             break; 
+
         case "add_role_admin":
             client.commands.get('add_role_admin').execute(message, args); 
             break; 
+
         case "kick_permissions":
             client.commands.get('kick_permissions').execute(message, args); 
             break;
+
         case "voice_permissions":
             client.commands.get('voice_permissions').execute(message, args); 
             break; 
+
         case "roles":
             client.commands.get('roles').execute(message, args); 
             break; 
@@ -149,4 +127,5 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('TOKEN'); 
+client.login("ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM"); 
+// ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.ABnXnIXcfWuPDJqhx7hECehhjOM
