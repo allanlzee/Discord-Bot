@@ -16,20 +16,36 @@ module.exports = {
         if (message.member.roles.cache.has(admin)) {
             switch(newRole) {
                 case 'programmer':
-                    newMember.roles.add(programmer).catch(console.error);
-                    message.channel.send(`Added role Programmer to ${newMember}`); 
+                    if (!newMember.roles.cache.has(programmer)) {
+                        newMember.roles.add(programmer).catch(console.error);
+                        message.channel.send(`Added role Programmer to ${newMember}`); 
+                    } else {
+                        message.channel.send(`${newMember} already has this role.`); 
+                    }
                     break; 
                 case 'functional-bot':
-                    newMember.roles.add(functionalBot).catch(console.error); 
-                    message.channel.send(`Added role Functional Bot to ${newMember}`); 
+                    if (!newMember.roles.cache.has(functionalBot)) {
+                        newMember.roles.add(functionalBot).catch(console.error); 
+                        message.channel.send(`Added role Functional Bot to ${newMember}`); 
+                    } else {
+                        message.channel.send(`${newMember} already has this role.`); 
+                    }
                     break; 
                 case 'beta-bot':
-                    newMember.roles.add(BETAbot).catch(console.error);
-                    message.channel.send(`Added role BETA Bot to ${newMember}`); 
+                    if (!newMember.roles.cache.has(BETAbot)) {
+                        newMember.roles.add(BETAbot).catch(console.error);
+                        message.channel.send(`Added role BETA Bot to ${newMember}`); 
+                    } else {
+                        message.channel.send(`${newMember} already has this role.`); 
+                    }
                     break;
                 case 'closed-bot':
-                    newMember.roles.add(closedBot).catch(console.error);
-                    message.channel.send(`Added role Closed Bot to ${newMember}`); 
+                    if (!newMember.roles.cache.has(closedBot)) {
+                        newMember.roles.add(closedBot).catch(console.error);
+                        message.channel.send(`Added role Closed Bot to ${newMember}`); 
+                    } else {
+                        message.channel.send(`${newMember} already has this role.`); 
+                    }
                     break; 
                 default:
                     message.channel.send(`Error: Cannot add role ${newRole} to ${newMember}`); 
