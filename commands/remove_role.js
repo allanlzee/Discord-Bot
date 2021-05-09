@@ -16,23 +16,43 @@ module.exports = {
         if (message.member.roles.cache.has(admin)) {
             switch(newRole) {
                 case 'programmer':
-                    newMember.roles.remove(programmer).catch(console.error);
-                    message.channel.send(`Removed role Programmer to ${newMember}`); 
+                    if (newMember.roles.cache.has(programmer)) {
+                        newMember.roles.remove(programmer).catch(console.error);
+                        message.channel.send(`Removed role Programmer from ${newMember}`); 
+                    } else {
+                        message.channel.send(`User ${newMember} does not have this role.`); 
+                    }
                     break; 
+
                 case 'functional-bot':
-                    newMember.roles.remove(functionalBot).catch(console.error); 
-                    message.channel.send(`Removed role Functional Bot to ${newMember}`); 
+                    if (newMember.roles.cache.has(functionalBot)) {
+                        newMember.roles.remove(functionalBot).catch(console.error); 
+                        message.channel.send(`Removed role Functional Bot from ${newMember}`); 
+                    } else {
+                        message.channel.send(`User ${newMember} does not have this role.`); 
+                    }
                     break; 
+
                 case 'beta-bot':
-                    newMember.roles.remove(BETAbot).catch(console.error);
-                    message.channel.send(`Removed role BETA Bot to ${newMember}`); 
+                    if (newMember.roles.cache.has(BETAbot)) {
+                        newMember.roles.remove(BETAbot).catch(console.error);
+                        message.channel.send(`Removed role BETA Bot from ${newMember}`); 
+                    } else {
+                        message.channel.send(`User ${newMember} does not have this role.`); 
+                    }
                     break;
+
                 case 'closed-bot':
-                    newMember.roles.remove(closedBot).catch(console.error);
-                    message.channel.send(`Removed role Closed Bot to ${newMember}`); 
+                    if (newMember.roles.cache.has(closedBot)) {
+                        newMember.roles.remove(closedBot).catch(console.error);
+                        message.channel.send(`Removed role Closed Bot from ${newMember}`); 
+                    } else {
+                        message.channel.send(`User ${newMember} does not have this role.`); 
+                    }
                     break; 
+
                 default:
-                    message.channel.send(`Error: Cannot remove role ${newRole} to ${newMember}`); 
+                    message.channel.send(`Error: Cannot remove role ${newRole} from ${newMember}`); 
                     break; 
             }
         }
