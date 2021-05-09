@@ -5,7 +5,7 @@ module.exports = {
     execute(message, args) {
         let oldMember = message.mentions.users.first();
         let newMember = message.guild.member(oldMember); 
-        let newRole = args[1]; 
+        let newRole = args[1].toLowerCase(); 
 
         const admin = "840332334753382481";
         const programmer = "840318933910683690"; 
@@ -15,19 +15,19 @@ module.exports = {
         
         if (message.member.roles.cache.has(admin)) {
             switch(newRole) {
-                case 'Programmer':
+                case 'programmer':
                     newMember.roles.add(programmer).catch(console.error);
                     message.channel.send(`Added role Programmer to ${newMember}`); 
                     break; 
-                case 'Functional-Bot':
+                case 'functional-bot':
                     newMember.roles.add(functionalBot).catch(console.error); 
                     message.channel.send(`Added role Functional Bot to ${newMember}`); 
                     break; 
-                case 'BETA-Bot':
+                case 'beta-bot':
                     newMember.roles.add(BETAbot).catch(console.error);
                     message.channel.send(`Added role BETA Bot to ${newMember}`); 
                     break;
-                case 'Closed-Bot':
+                case 'closed-bot':
                     newMember.roles.add(closedBot).catch(console.error);
                     message.channel.send(`Added role Closed Bot to ${newMember}`); 
                     break; 
