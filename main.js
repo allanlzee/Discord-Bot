@@ -6,6 +6,15 @@ const prefix = '$';
 
 const fs = require('fs'); 
 
+// For the Music Bot
+const ytdl = require("ytdl-core"); 
+const ytSearch = require("yt-search"); 
+
+let servers = {
+    queue: []
+}; 
+
+
 client.commands = new Discord.Collection(); 
 // client.messages = new Discord.Collection(); 
 
@@ -129,6 +138,14 @@ function processCommand(message, args, command) {
 
         case "pause":
             client.commands.get('pause').execute(message, args); 
+            break; 
+
+        case "queue": 
+            client.commands.get('queue').execute(message, args, servers); 
+            break;
+
+        case "queue_add":
+            client.commands.get('queue_add').execute(message, args, servers); 
             break; 
 
         default:

@@ -19,8 +19,11 @@ module.exports = {
             {name: "Review Bot's JavaScript Code", value: "$bot_code"},
             
             {name: 'See All Bot Commands', value: "$commands"},
+            {name: 'Play One Song', value: "$join_voice"}, 
             {name: 'Kick User (Admin)', value: "$kick"},
             {name: 'See Individual Permissions', value: "$permissions"},
+            {name: 'Play Song from Queue', value: "$queue"}, 
+            {name: 'Add Song to Queue', value: "$queue_add"},
             {name: 'Remove Roles (Admin/Programmer)', value: "$remove_role"},
             {name: 'View Roles', value: "$roles"},
             {name: 'View Role Permissions', value: "$role_permissions"},

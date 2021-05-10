@@ -5,6 +5,12 @@ module.exports = {
     execute(message, args) {
         let oldMember = message.mentions.users.first();
         let newMember = message.guild.member(oldMember); 
+
+        if (!args[1]) {
+            message.channel.send("You need to specify a member or role."); 
+            return; 
+        }
+
         let newRole = args[1].toLowerCase(); 
 
         const admin = "840332334753382481";
