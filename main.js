@@ -148,6 +148,14 @@ function processCommand(message, args, command) {
             client.commands.get('queue_add').execute(message, args, servers); 
             break; 
 
+        case "queue_view":
+            client.commands.get('queue_view').execute(message, args, servers, Discord);
+            break; 
+
+        case "pause":
+            client.commands.get('pause').execute(message, args); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -155,5 +163,5 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('BOT_TOKEN'); 
+client.login('BOT-TOKEN'); 
 // Regenerate Token Frequently

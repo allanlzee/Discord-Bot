@@ -52,27 +52,69 @@ module.exports = {
         const connection = await voiceChannel.join(); 
         message.channel.send(`Queueing ${args.join(' ')}! 🤠 `); 
 
-        const video = await videoFinder(args.join(' '));
+        const video = args.join(' ');
 
         servers.queue.push(video); 
 
+        // TODO: Fix this function 
         while(servers.queue.length > 0) {
             const video = servers.queue[0]; 
             servers.queue.shift();
 
-            if (video) {
-                const stream = ytdl(video.url, {filter: "audioonly"}); 
+            const nextSong = await videoFinder(video); 
+
+            if (nextSong) {
+                const stream = ytdl(nextSong.url, {filter: "audioonly"}); 
 
                 connection.play(stream, {seek: 0, volumn: 0.5})
                 .on('finish', () => {
-                    message.channel.send(`Finished ${video.url}`); 
+                    message.channel.send(`Finished ${nextSong.url}`); 
                 });
-                await message.channel.send(`▶️ Now Playing ***${video.title}***`);
+                await message.channel.send(`▶️ Now Playing ***${nextSong.title}***`);
             } else {
                 message.channel.send('No video results found.'); 
             } 
         } 
 
         console.log("Queue Finished"); 
-    }
+
+        /* function play(connection, message, servers) {
+            var server = servers[message.guild.id];
+
+            server.dispatcher = connection.playStream(ytSearch(server.queue[0], {filter: "audioonlu"}));
+
+            server.queue.shift(); 
+
+            server.dispatcher.on("end", function() {
+                if (server.queue[0]) {
+                    play(connection, message); 
+                } else {
+                    connection.disconnect(); 
+                }
+            });
+        }
+
+        if(!args) {
+            message.channel.send("You need to provide a song.");
+            return;
+        }
+
+        if (!message.member.voice.channel) {
+            message.channel.send("You must be in a channel.");
+        }
+
+        if (!servers[message.guild.id]) servers[message.guild.id] = {
+            queue: []
+        }
+
+        var server = servers[message.guild.id];
+
+        server.queue.push(args); 
+
+        if(!message.guild.voice.connection) {
+            message.member.voice.channel.join().then(function(connection) {
+                play(connection, message); 
+            });
+        } */ 
+    } 
 }

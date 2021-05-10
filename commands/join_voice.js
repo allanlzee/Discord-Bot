@@ -13,6 +13,11 @@ module.exports = {
             return; 
         }
 
+        if (!args) {
+            message.channel.send("You need to specify a song.");
+            return;
+        }
+
         const permissions = voiceChannel.permissionsFor(message.client.user); 
 
         if (!permissions.has('CONNECT')) {
@@ -26,7 +31,7 @@ module.exports = {
         }
 
         if (!args.length) {
-            message.channel.reply("You have not specified an audio clip."); 
+            message.channel.send("You have not specified an audio clip."); 
             return; 
         } 
 

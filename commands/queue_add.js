@@ -7,8 +7,6 @@ module.exports = {
 
     async execute(message, args, servers) {
 
-        let queue = servers.queue; 
-
         if (!args) {
             message.channel.send("You have not specified a song."); 
             return; 
@@ -46,7 +44,7 @@ module.exports = {
         }
 
         function addToQueue(song) {
-            queue.push(song); 
+            servers.queue.push(song); 
         }
 
         const video = await videoFinder(args.join(' ')); 

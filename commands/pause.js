@@ -2,26 +2,19 @@ module.exports = {
     name: 'pause',
     description: "pauses the music bot",
 
-    async execute(message, args) {
-        const voiceChannel = message.member.voice.channel; 
+    async execute(message, args, servers) {
 
-        if (!voiceChannel) {
-            message.channel.send("You need to be in a voice channel.");
-            return;
+        var server = servers[message.guild.id];
+
+        if(message.guild.voice.connection) {
+            for (var i = server.queue.length - 1; i >= 0; i--) {
+                server.queue.splice(i, 1); 
+            }
+
+            server.dispatcher.end(); 
+            console.log("Queue Paused."); 
         }
 
-        const permissions = voiceChannel.permissionsFor(message.client.user); 
-        if (!permissions.has('CONNECT')) {
-            message.channel.send("You do not have the correct CONNECT permissions."); 
-            return; 
-        }
-
-        if (!permissions.has('SPEAK')) {
-            message.channel.send("You do not have the correct SPEAK permissions."); 
-            return; 
-        }
-
-        voiceChannel.pause(); 
-        
+        if(message.guild.connection) message.guild.voice.connection.disconnect(); 
     }
 }
