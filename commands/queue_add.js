@@ -47,9 +47,9 @@ module.exports = {
             servers.queue.push(song); 
         }
 
-        const video = await videoFinder(args.join(' ')); 
+        const video = args.join(' '); 
         addToQueue(video); 
-        message.channel.send(`Added ${video.title} to the queue.`); 
-        console.log(`Queue: + ${video.title}`); 
+        message.channel.send(`Added ${video} to the queue.`); 
+        console.log(`Queue: + ${video}`); 
     }
 }

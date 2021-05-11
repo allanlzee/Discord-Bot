@@ -28,13 +28,13 @@ module.exports = {
         }
 
         // If there is not existing queue, initialize one
-        if (!servers[message.guild.id]) {
+        /* if (!servers[message.guild.id]) {
             servers = {
                 queue: []
             }
         } else {
             message.channel.send("There is already a queue."); 
-        }
+        } */ 
 
         const permissions = voiceChannel.permissionsFor(message.client.user); 
 
@@ -63,17 +63,28 @@ module.exports = {
 
             const nextSong = await videoFinder(video); 
 
-            if (nextSong) {
+            /* if (nextSong) {
                 const stream = ytdl(nextSong.url, {filter: "audioonly"}); 
+                const queuedSong = servers.queue[0];
 
-                connection.play(stream, {seek: 0, volumn: 0.5})
+                if (queuedSong) {
+                    const nextStream = ytdl(queuedSong.url, {filter: "audioonly"});
+                }
+                
+                connection.play(stream, {seek: 0, volume: 0.5})
                 .on('finish', () => {
                     message.channel.send(`Finished ${nextSong.url}`); 
+                    if (queuedSong) {
+                        connection.play(nextStream, {seek: 0, volume: 0.5});
+                    } else {
+                        connection.play(nextStream, {seek: 0, volume: 0.5}); 
+                        message.channel.send("Queue Finished."); 
+                    }
                 });
                 await message.channel.send(`▶️ Now Playing ***${nextSong.title}***`);
             } else {
                 message.channel.send('No video results found.'); 
-            } 
+            } */ 
         } 
 
         console.log("Queue Finished"); 

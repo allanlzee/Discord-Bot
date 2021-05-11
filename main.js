@@ -156,6 +156,10 @@ function processCommand(message, args, command) {
             client.commands.get('pause').execute(message, args); 
             break; 
 
+        case "queue_play":
+            client.commands.get('queue-play').execute(message, args, servers);
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
@@ -163,5 +167,5 @@ function processCommand(message, args, command) {
 
 }
 
-client.login('BOT-TOKEN'); 
+client.login('BOT_TOKEN'); 
 // Regenerate Token Frequently

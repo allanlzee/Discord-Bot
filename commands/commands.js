@@ -24,6 +24,7 @@ module.exports = {
             {name: 'See Individual Permissions', value: "$permissions"},
             {name: 'Play Song from Queue', value: "$queue"}, 
             {name: 'Add Song to Queue', value: "$queue_add"},
+            {name: 'View the Music Queue', value: "queue_view"},
             {name: 'Remove Roles (Admin/Programmer)', value: "$remove_role"},
             {name: 'View Roles', value: "$roles"},
             {name: 'View Role Permissions', value: "$role_permissions"},
