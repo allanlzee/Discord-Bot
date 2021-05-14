@@ -10,10 +10,11 @@ const fs = require('fs');
 const ytdl = require("ytdl-core"); 
 const ytSearch = require("yt-search"); 
 
+// Initialize the Music Queue
 let servers = {
-    queue: []
+    queue: [], 
+    
 }; 
-
 
 client.commands = new Discord.Collection(); 
 // client.messages = new Discord.Collection(); 
@@ -47,7 +48,7 @@ client.once('ready', () => {
     // Sends Message to the General Chat
     let generalChannel = client.channels.cache.get("839660448957464627");
     generalChannel.send("Allan's Bot is ONLINE!");
-    //generalChannel.send("https://github.com/allanlzee"); 
+    // generalChannel.send("https://github.com/allanlzee"); 
 
 });
 
@@ -58,7 +59,7 @@ client.on('message', (message) => {
     const command = args.shift().toLowerCase(); 
 
     message.guild.emojis.cache.forEach(customEmoji => {
-        console.log(`${customEmoji.name} ${customEmoji.id}`);
+    // console.log(`${customEmoji.name} ${customEmoji.id}`);
         message.react(customEmoji); 
     }); 
 
@@ -159,6 +160,18 @@ function processCommand(message, args, command) {
         case "queue_play":
             client.commands.get('queue-play').execute(message, args, servers);
             break; 
+
+        case "queue_top":
+            client.commands.get('queue_top').execute(message, args, servers);
+            break;
+
+        case "schedule_create":
+            client.commands.get('schedule_create').execute(message, args, servers); 
+            break; 
+        
+        case "schedule_view":
+            client.commands.get('schedule_view').execute(message, args, servers, Discord);
+            break;  
 
         default:
             message.channel.send("Not a valid command."); 

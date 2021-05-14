@@ -28,13 +28,13 @@ module.exports = {
         }
 
         // If there is not existing queue, initialize one
-        /* if (!servers[message.guild.id]) {
+        if (!servers[message.guild.id]) {
             servers = {
                 queue: []
             }
         } else {
             message.channel.send("There is already a queue."); 
-        } */ 
+        } 
 
         const permissions = voiceChannel.permissionsFor(message.client.user); 
 
@@ -61,16 +61,17 @@ module.exports = {
             const video = servers.queue[0]; 
             servers.queue.shift();
 
-            const nextSong = await videoFinder(video); 
+            const nextSong = await videoFinder(video);
+            const nextStream = null;  
 
-            /* if (nextSong) {
+            const queuedSong = servers.queue[0];
+            if (queuedSong) {
+                nextStream = ytdl(queuedSong.url, {filter: "audioonly"});
+            }
+
+            if (nextSong) {
                 const stream = ytdl(nextSong.url, {filter: "audioonly"}); 
-                const queuedSong = servers.queue[0];
 
-                if (queuedSong) {
-                    const nextStream = ytdl(queuedSong.url, {filter: "audioonly"});
-                }
-                
                 connection.play(stream, {seek: 0, volume: 0.5})
                 .on('finish', () => {
                     message.channel.send(`Finished ${nextSong.url}`); 
@@ -84,7 +85,7 @@ module.exports = {
                 await message.channel.send(`▶️ Now Playing ***${nextSong.title}***`);
             } else {
                 message.channel.send('No video results found.'); 
-            } */ 
+            } 
         } 
 
         console.log("Queue Finished"); 
@@ -92,18 +93,18 @@ module.exports = {
         /* function play(connection, message, servers) {
             var server = servers[message.guild.id];
 
-            server.dispatcher = connection.playStream(ytSearch(server.queue[0], {filter: "audioonlu"}));
+            server.dispatcher = connection.playStream(ytSearch(server.queue[0], {filter: "audioonly"}));
 
             server.queue.shift(); 
 
             server.dispatcher.on("end", function() {
                 if (server.queue[0]) {
-                    play(connection, message); 
+                    play(connection, message, servers); 
                 } else {
                     connection.disconnect(); 
                 }
             });
-        }
+        } 
 
         if(!args) {
             message.channel.send("You need to provide a song.");
@@ -126,6 +127,7 @@ module.exports = {
             message.member.voice.channel.join().then(function(connection) {
                 play(connection, message); 
             });
-        } */ 
+        } 
+        */
     } 
 }
