@@ -2,7 +2,15 @@ module.exports = {
     name: "bug_reports",
     description: "View bugs",
 
-    execute(message, args, servers, Discord) {
+    execute(message, args, servers, Discord, client) {
+
+        const programmer = "840318933910683690"; 
+        const bugsChannel = client.channels.cache.get("842898933679259660"); 
+
+        if (!message.member.roles.cache.has(programmer)) {
+            message.channel.send("You do not have the role to view bug reports.");
+            return; 
+        }
         
         const bugs = servers.bug_reports; 
 
@@ -22,7 +30,8 @@ module.exports = {
             )
             .setFooter("Use $bug to add bug reports."); 
 
-            message.channel.send(commandEmbed);
+            bugsChannel.send(commandEmbed);
+            message.channel.send("Report issued. Check channel bot-bugs for more information."); 
         }
     }
 }

@@ -3,7 +3,14 @@ module.exports = {
     description: "allows user to report bugs so the creator can see",
 
     execute(message, args, servers) {
-        servers.bug_reports.push(message);
-        message.channel.send("Thank you. We will fix the bug ASAP.");  
+        let newMessage = ""; 
+        let length = args.length; 
+        for (let i = 0; i < length; i++) {
+            newMessage += args[i].toString(); 
+            newMessage += " "; 
+        }
+
+        servers.bug_reports.push(newMessage); 
+        message.channel.send("Reported Bug! ✅ ");  
     }
 }

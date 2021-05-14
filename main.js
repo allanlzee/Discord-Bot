@@ -46,8 +46,8 @@ client.once('ready', () => {
     }); 
 
     // Sends Message to the General Chat
-    let generalChannel = client.channels.cache.get("839660448957464627");
-    generalChannel.send("Allan's Bot is ONLINE!");
+    let botChannel = client.channels.cache.get("839660448957464627");
+    botChannel.send("Allan's Bot is ONLINE!");
     // generalChannel.send("https://github.com/allanlzee"); 
 
 });
@@ -183,7 +183,7 @@ function processCommand(message, args, command) {
             break;
 
         case "bug_reports":
-            client.commands.get('bug_reports').execute(message, args, servers, Discord); 
+            client.commands.get('bug_reports').execute(message, args, servers, Discord, client); 
             break;
 
         default:
