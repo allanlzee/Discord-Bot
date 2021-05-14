@@ -177,6 +177,14 @@ function processCommand(message, args, command) {
         case "schedule_add":
             client.commands.get('schedule_add').execute(message, args, servers); 
             break; 
+        
+        case "bug":
+            client.commands.get('bug').execute(message, args, servers); 
+            break;
+
+        case "bug_reports":
+            client.commands.get('bug_reports').execute(message, args, servers, Discord); 
+            break;
 
         default:
             message.channel.send("Not a valid command."); 
@@ -184,5 +192,5 @@ function processCommand(message, args, command) {
     }
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.441sr1Vi4mCE2s9nzcrA2Jk_QOM'); 
+client.login('BOT_TOKEN'); 
 // Regenerate Token Frequently
