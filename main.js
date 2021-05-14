@@ -13,7 +13,7 @@ const ytSearch = require("yt-search");
 // Initialize the Music Queue
 let servers = {
     queue: [], 
-    
+    bug_reports: []
 }; 
 
 client.commands = new Discord.Collection(); 
@@ -34,7 +34,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    console.log("Allan's Bot is ONLINE!");
+    console.log("Status: ONLINE");
 
     client.user.setActivity("JavaScript"); 
     client.guilds.cache.forEach((guild) => {
@@ -75,6 +75,7 @@ function processCommand(message, args, command) {
     console.log(command);
     
     let author = message.author.toString();
+    console.log(author); 
 
     switch(command) {
         case "hello":
@@ -173,12 +174,15 @@ function processCommand(message, args, command) {
             client.commands.get('schedule_view').execute(message, args, servers, Discord);
             break;  
 
+        case "schedule_add":
+            client.commands.get('schedule_add').execute(message, args, servers); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
     }
-
 }
 
-client.login('BOT_TOKEN'); 
+client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.441sr1Vi4mCE2s9nzcrA2Jk_QOM'); 
 // Regenerate Token Frequently

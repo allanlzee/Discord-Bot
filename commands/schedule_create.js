@@ -17,10 +17,10 @@ module.exports = {
 
         if (!servers[member]) {
             servers[member] = []; 
+            message.channel.send(`Successfully created empty schedule for ${member.username}. 🎉`)
         } else {
             message.channel.send(`User ${member.tag} already has a schedule.`); 
             return; 
         }
-        
     }
 }
