@@ -184,5 +184,5 @@ function processCommand(message, args, command) {
     }
 }
 
-client.login('ODM5OTk0NzM0MDYzNzc5ODcx.YJRwDg.441sr1Vi4mCE2s9nzcrA2Jk_QOM'); 
+client.login('BOT_TOKEN'); 
 // Regenerate Token Frequently
