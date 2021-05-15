@@ -9,68 +9,21 @@ module.exports = {
             songs.push(servers.queue[i]); 
         }
 
-        var firstSong; 
-        var secondSong;
-        var thirdSong; 
-
-        if (length >= 1) {
-            firstSong = songs[0].toString();
-        } 
-        
-        if (length >= 2) {
-            secondSong = songs[1].toString();
-        } 
-        
-        if (length >= 3) {
-            thirdSong = songs[2].toString();
-        }
-
-        const commandEmbed = new Discord.MessageEmbed()
-        .setColor("#5ac18e")
-        .setTitle("Music Queue")
-        .setAuthor("Music Bot")
-        .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLRjrvfza3oNchpwREG4U_W2rSTip6EKurQ&usqp=CAU")
-        .setDescription("View the Music Bot's Queue")
-        .addFields(
-            {name: "First", value: firstSong}
-        )
-        .setFooter("Use $queue_add to add songs.");
-
-
-        const commandEmbed2 = new Discord.MessageEmbed()
-        .setColor("#5ac18e")
-        .setTitle("Music Queue")
-        .setAuthor("Music Bot")
-        .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLRjrvfza3oNchpwREG4U_W2rSTip6EKurQ&usqp=CAU")
-        .setDescription("View the Music Bot's Queue")
-        .addFields(
-            {name: "First", value: firstSong},
-            {name: "Second", value: secondSong}
- 
-        )
-        .setFooter("Use $queue_add to add songs.");
-
-        const commandEmbed3 = new Discord.MessageEmbed()
-        .setColor("#5ac18e")
-        .setTitle("Music Queue")
-        .setAuthor("Music Bot")
-        .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLRjrvfza3oNchpwREG4U_W2rSTip6EKurQ&usqp=CAU")
-        .setDescription("View the Music Bot's Queue")
-        .addFields(
-            {name: "First", value: firstSong},
-            {name: "Second", value: secondSong},
-            {name: "Third", value: thirdSong}
-        )
-        .setFooter("Use $queue_add to add songs.");
-
-        if (length === 0) {
-            message.channel.send("No Songs in Queue.");
-        } else if (length === 1) {
-            message.channel.send(commandEmbed);
-        } else if (length === 2) {
-            message.channel.send(commandEmbed2); 
+        if (!songs) {
+            message.channel.send("No songs in the queue."); 
         } else {
-            message.channel.send(commandEmbed3);
+            const commandEmbed = new Discord.MessageEmbed()
+            .setColor("#5ac18e")
+            .setTitle("Music Queue")
+            .setAuthor("Music Bot")
+            .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLRjrvfza3oNchpwREG4U_W2rSTip6EKurQ&usqp=CAU")
+            .setDescription("View the Music Bot's Queue")
+            .addFields(
+                {name: "Queue", value: songs}
+            )
+            .setFooter("Use $queue_add to add songs.");
+            
+            message.channel.send(commandEmbed); 
         }
     }
 }

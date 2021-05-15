@@ -24,12 +24,7 @@ module.exports = {
             message.channel.send("You need to be in a voice channel."); 
             return; 
         }
-
-        /* if (!servers[message.guild.id]) {
-            message.channel.send("You need to use command $queue to initialize a queue."); 
-            return; 
-        } 
-        */
+        
 
         const permissions = voiceChannel.permissionsFor(message.client.user); 
 
