@@ -1,6 +1,8 @@
 const Discord = require('discord.js'); 
 
 const client = new Discord.Client(); 
+const config = require("./.gitignore/config.json"); 
+const fetch = require('node-fetch')
 
 const prefix = '$'; 
 
@@ -52,7 +54,7 @@ client.once('ready', () => {
 
 });
 
-client.on('message', (message) => {
+client.on('message', async (message) => {
     if (!message.content.startsWith(prefix) || message.author.bot) return; 
 
     const args = message.content.slice(prefix.length).split(" "); 
@@ -69,7 +71,7 @@ client.on('message', (message) => {
 });
 
 
-function processCommand(message, args, command) {
+async function processCommand(message, args, command) {
 
     console.log(args);
     console.log(command);
@@ -186,11 +188,15 @@ function processCommand(message, args, command) {
             client.commands.get('bug_reports').execute(message, args, servers, Discord, client); 
             break;
 
+        case "trivia_sports":
+            client.commands.get('trivia_sports').execute(message, args, fetch); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
     }
 }
 
-client.login('BOT_TOKEN'); 
+client.login(config.token); 
 // Regenerate Token Frequently

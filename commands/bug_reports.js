@@ -4,6 +4,18 @@ module.exports = {
 
     execute(message, args, servers, Discord, client) {
 
+        let commandEmbed = new Discord.MessageEmbed()
+            .setColor("#ac25e2")
+            .setTitle(`Bug Reports`)
+            .setAuthor("Allan Zhou")
+            .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDSu-n5vCidYEmb_uJouhIgSXGdMmjEcdtjw&usqp=CAU")
+            .setDescription(`Unresolved Errors on the Bot.`)
+            .addFields(
+                {name: "Schedule", value: "Bugs will be shown here."}
+                // If schedule is undefined, the program will crash
+            )
+            .setFooter("Use $bug to add bug reports."); 
+
         const programmer = "840318933910683690"; 
         const bugsChannel = client.channels.cache.get("842898933679259660"); 
 
@@ -14,11 +26,11 @@ module.exports = {
         
         const bugs = servers.bug_reports; 
 
-        if (!bugs) {
+        if (bugs.length === 0) {
             message.channel.send("No bug reports found. 🙌🏻"); 
             return; 
         } else {
-            let commandEmbed = new Discord.MessageEmbed()
+            commandEmbed = new Discord.MessageEmbed()
             .setColor("#ac25e2")
             .setTitle(`Bug Reports`)
             .setAuthor("Allan Zhou")
