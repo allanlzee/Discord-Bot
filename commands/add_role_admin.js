@@ -6,9 +6,7 @@ module.exports = {
         if (message.member.roles.cache.has("840332334753382481")) {
             switch (newRole) {
                 case "Programmer":
-                    
             }
-
         } else {
             message.channel.send("You are not an Admin."); 
         }

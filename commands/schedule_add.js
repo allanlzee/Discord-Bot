@@ -35,6 +35,5 @@ module.exports = {
 
         servers[member].push(event); 
         message.channel.send(`Event ${event} added to ${member.username}'s schedule.`);
-        // TODO: figure out why the schedule_view command does not print the added event
     }
 }

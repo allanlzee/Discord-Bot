@@ -192,6 +192,10 @@ async function processCommand(message, args, command) {
             client.commands.get('trivia_sports').execute(message, args, fetch); 
             break; 
 
+        case "schedule_remove":
+            client.commands.get('schedule_remove').execute(message, args, servers); 
+            break;
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
