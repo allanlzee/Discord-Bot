@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client(); 
 const config = require("./.gitignore/config.json"); 
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const keep_alive = require('./keep_alive.js'); 
 
 const prefix = '$'; 
 
@@ -195,6 +196,10 @@ async function processCommand(message, args, command) {
         case "schedule_remove":
             client.commands.get('schedule_remove').execute(message, args, servers); 
             break;
+
+        case "schedule_delete":
+            client.commands.get('schedule_delete').execute(message, args, servers); 
+            break; 
 
         default:
             message.channel.send("Not a valid command."); 

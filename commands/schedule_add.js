@@ -15,22 +15,12 @@ module.exports = {
             return; 
         }
 
-        var event; 
+        var event = ""; 
         const length = args.length;
 
-        switch (length) {
-            case 2:
-                event = args[1]; 
-                break;
-            case 3: 
-                event = args[1].toString() + " " + args[2].toString(); 
-                break; 
-            case 4: 
-                event = args[1].toString() + " " + args[2].toString() + " " + args[3].toString(); 
-                break; 
-            case 5: 
-                event = args[1].toString() + " " + args[2].toString() + " " + args[3].toString() + " " + args[4].toString(); 
-                break; 
+        for (let i = 1; i < length; i++) {
+            event += args[i].toString();
+            event += " "; 
         }
 
         servers[member].push(event); 
