@@ -201,6 +201,10 @@ async function processCommand(message, args, command) {
             client.commands.get('schedule_delete').execute(message, args, servers); 
             break; 
 
+        case "class":
+            client.commands.get('class').execute(message, args, Discord); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 
