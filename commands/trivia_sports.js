@@ -16,22 +16,24 @@ module.exports = {
         let correctAnswer = question.correct_answer; 
         
         message.channel.send(question);
-        const filter = m => m.author.id === message.author.id; 
+        const filter = msg => msg.content.includes('discord'); 
 
-        const answer = await message.channel.awaitMessages(filter, {maxMatches: 1, time: 20000, errors: ['time', 'maxMatches']})
+        const answer = await message.channel.awaitMessages(filter, {maxMatches: 10, time: 20000, errors: ['time', 'maxMatches']})
             .then(collected => {
                 message.channel.send(`${collected.first().author} is correct!`);
             }) 
             .catch(collected => {
                 message.channel.send("No correct answers. Tough luck."); 
             });
-
-        const reply = answer.first(); 
         
-        if (reply.content.toLowerCase() === correctAnswer.toLowerCase()) {
-            message.channel.send("Correct."); 
-        } else {
-            message.channel.send("Incorrect."); 
-        }
+        let reply; 
+        if (answer) {
+            reply = answer.first(); 
+            if (reply.content.toLowerCase() === correctAnswer.toLowerCase()) {
+                message.channel.send("Correct."); 
+            } else {
+                message.channel.send("Incorrect."); 
+            }
+        }     
     }
 }

@@ -19,6 +19,10 @@ let servers = {
     bug_reports: []
 }; 
 
+let trivia = {
+
+}; 
+
 client.commands = new Discord.Collection(); 
 // client.messages = new Discord.Collection(); 
 
@@ -203,6 +207,14 @@ async function processCommand(message, args, command) {
 
         case "class":
             client.commands.get('class').execute(message, args, Discord); 
+            break; 
+        
+        case "trivia":
+            client.commands.get('trivia').execute(message, args, fetch, trivia);
+            break; 
+        
+        case "scoreboard":
+            client.commands.get('scoreboard').execute(message, args, trivia, Discord);
             break; 
 
         default:
