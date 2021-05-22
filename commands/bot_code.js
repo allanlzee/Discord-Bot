@@ -8,7 +8,7 @@ module.exports = {
 
         // if (message.member.roles.cache.some(r => r.name === "840318933910683690"))
         if (message.member.roles.cache.has('840318933910683690')) {
-            message.channel.send("https://github.com/allanlzee"); 
+            message.channel.send("https://github.com/allanlzee/DiscordBotRevised"); 
         } 
         else {
             message.channel.send("You do not have the role to access this command.");
