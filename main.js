@@ -217,6 +217,11 @@ async function processCommand(message, args, command) {
             client.commands.get('scoreboard').execute(message, args, trivia, Discord);
             break; 
 
+        case "scoreboard_create":
+            client.commands.get('scoreboard_create').execute(message, args, trivia, client); 
+            client.commands.get('scoreboard').execute(message, args, trivia, Discord); 
+            break; 
+
         default:
             message.channel.send("Not a valid command."); 
             break; 

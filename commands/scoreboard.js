@@ -13,14 +13,6 @@ module.exports = {
             length++; 
         }
 
-        let totals = {
-            scores: []
-        }; 
-
-        for (let i = 0; i < users.length; i++) {
-            totals.scores.push([users[i], points[i]]); 
-        }
-
         let scoreBoard = new Discord.MessageEmbed()
         .setColor("#00CED1")
         .setTitle("Trivia Scoreboard")
@@ -38,7 +30,7 @@ module.exports = {
             .setAuthor("Allan Zhou")
             .setImage("https://static.vecteezy.com/system/resources/previews/000/129/108/original/trivia-papper-background-illustration-vector.jpg")
             .addFields(
-                {name: "Scoreboard", value: totals}
+                {name: "Scoreboard", value: trivia}
             )
             .setFooter("Use $trivia to score points!"); 
             message.channel.send(scoreBoard); 
