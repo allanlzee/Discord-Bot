@@ -20,6 +20,7 @@ let servers = {
 }; 
 
 let trivia = {
+    
 }; 
 
 client.commands = new Discord.Collection(); 
@@ -84,6 +85,7 @@ async function processCommand(message, args, command) {
     console.log(author); 
 
     switch(command) {
+        // Introduction and Greetings
         case "hello":
             client.commands.get('hello').execute(message, args, author);  
             break; 
@@ -93,7 +95,6 @@ async function processCommand(message, args, command) {
             break; 
 
         // Roles and Permissions
-
         case "add_role":
             client.commands.get('add_role').execute(message, args);
             break;
@@ -131,13 +132,11 @@ async function processCommand(message, args, command) {
             break; 
 
         // Message Embeds 
-
         case "commands":
             client.commands.get('commands').execute(message, args, Discord); 
             break;
 
         // Music
-
         case "join_voice":
             client.commands.get('join_voice').execute(message, args); 
             break;
@@ -179,7 +178,6 @@ async function processCommand(message, args, command) {
             break;
 
         // Schedule
-
         case "schedule_create":
             client.commands.get('schedule_create').execute(message, args, servers); 
             break; 
@@ -205,7 +203,6 @@ async function processCommand(message, args, command) {
             break;
 
         // Bugs and Errors
-        
         case "bug":
             client.commands.get('bug').execute(message, args, servers); 
             break;
@@ -215,6 +212,9 @@ async function processCommand(message, args, command) {
             break;
 
         // Trivia Section
+        case "trivia_help":
+            client.commands.get('trivia_help').execute(message, args, Discord);
+            break; 
 
         case "trivia_random":
             client.commands.get('trivia_random').execute(message, args, fetch, trivia);
@@ -235,7 +235,6 @@ async function processCommand(message, args, command) {
 
 
         // Invalid Commands
-        
         default:
             message.channel.send("Not a valid command."); 
             break; 
