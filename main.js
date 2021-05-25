@@ -20,7 +20,6 @@ let servers = {
 }; 
 
 let trivia = {
-
 }; 
 
 client.commands = new Discord.Collection(); 

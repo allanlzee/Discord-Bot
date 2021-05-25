@@ -23,13 +23,7 @@ module.exports = {
                 correct.replace(correct.substring(indexStart, i), ""); 
             }
         }
-
-        // Fix the question 
-        question.replace("&#039;", "'"); 
-        correct.replace('&iacute;', "i"); 
-        question.replace('&quot;', ""); 
         
-
         let difficulty = prompt.difficulty; 
 
         let points; 
