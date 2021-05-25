@@ -1,10 +1,10 @@
 module.exports = {
-    name: 'trivia_sports',
-    description: 'trivia questions',
+    name: 'trivia_computers',
+    description: 'computer science trivia questions', 
 
     async execute(message, args, fetch, servers) {
         // Generate trivia prompts
-        const response = await fetch("https://opentdb.com/api.php?amount=15&category=21"); 
+        const response = await fetch("https://opentdb.com/api.php?amount=50&category=18"); 
         const api = await response.json(); 
 
         let length = api.results.length; 
@@ -41,7 +41,7 @@ module.exports = {
                 correct.replace(correct.substring(indexStart, i), ""); 
             }
         }
-        
+
         let difficulty = prompt.difficulty; 
 
         let points; 

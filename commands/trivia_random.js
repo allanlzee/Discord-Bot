@@ -14,6 +14,24 @@ module.exports = {
         let question = prompt.question; 
         let correct = prompt.correct_answer; 
 
+        let answers = []; 
+
+        let answerLength = prompt.incorrect_answers.length + 1; 
+
+        // Shuffle the random
+        let shuffle = Math.floor(Math.random() * answerLength); 
+
+        let m = 0; 
+        
+        for (let i = 0; i < answerLength; i++) {
+            if (i == shuffle) {
+                answers.push(correct); 
+            } else {
+                answers.push(prompt.incorrect_answers[m]); 
+                m++; 
+            }
+        }
+
         // Fix the Correct Answer
         let indexStart = -1; 
         for (let i = 0; i < correct.length; i++) {
@@ -23,7 +41,7 @@ module.exports = {
                 correct.replace(correct.substring(indexStart, i), ""); 
             }
         }
-        
+
         let difficulty = prompt.difficulty; 
 
         let points; 
@@ -49,6 +67,7 @@ module.exports = {
         }
 
         message.channel.send(question).then(() => {
+            message.channel.send(answers); 
             message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
             .then(collected => {
                 message.channel.send(`${collected.first().author} got the correct answer!`);

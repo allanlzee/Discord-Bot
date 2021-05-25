@@ -221,7 +221,23 @@ async function processCommand(message, args, command) {
             break; 
 
         case "trivia_sports":
-            client.commands.get('trivia_sports').execute(message, args, fetch); 
+            client.commands.get('trivia_sports').execute(message, args, fetch, trivia); 
+            break; 
+
+        case "trivia_general":
+            client.commands.get('trivia_general').execute(message, args, fetch, trivia);
+            break; 
+
+        case "trivia_anime":
+            client.commands.get('trivia_anime').execute(message, args, fetch, trivia);
+            break; 
+
+        case "trivia_math":
+            client.commands.get('trivia_math').execute(message, args, fetch, trivia);
+            break; 
+
+        case "trivia_computers":
+            client.commands.get('trivia_computers').execute(message, args, fetch, trivia);
             break; 
         
         case "scoreboard":
