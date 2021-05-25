@@ -20,7 +20,7 @@ let servers = {
 }; 
 
 let trivia = {
-    
+
 }; 
 
 client.commands = new Discord.Collection(); 
@@ -233,6 +233,10 @@ async function processCommand(message, args, command) {
             client.commands.get('scoreboard').execute(message, args, trivia, Discord); 
             break; 
 
+        // Message Handling
+        case "clear_chat":
+            client.commands.get('clear_chat').execute(message); 
+            break; 
 
         // Invalid Commands
         default:
