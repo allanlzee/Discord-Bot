@@ -12,7 +12,10 @@ module.exports = {
             {name: "Create Scoreboard", value: "$scoreboard_create"}, 
             {name: "View Scoreboard", value: "$scoreboard"},
             {name: "Random Trivia", value: "$trivia_random"},
-            {name: "Sports", value: "Sports Trivia"}
+            {name: "Sports", value: "Sports Trivia"}, 
+            {name: "Anime", value: "$trivia_anime"},
+            {name: "Computers", value: "$trivia_computers"},
+            {name: "General Knowledge", value: "$trivia_general"}
         ).setFooter("Use $bugs to recommend new trivia topics."); 
 
         message.channel.send(help); 

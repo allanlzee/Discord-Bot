@@ -251,7 +251,7 @@ async function processCommand(message, args, command) {
 
         // Message Handling
         case "clear_chat":
-            client.commands.get('clear_chat').execute(message); 
+            client.commands.get('clear_chat').execute(message, args); 
             break; 
 
         // Invalid Commands
