@@ -92,6 +92,8 @@ async function processCommand(message, args, command) {
             client.commands.get('bot_code').execute(message, args); 
             break; 
 
+        // Roles and Permissions
+
         case "add_role":
             client.commands.get('add_role').execute(message, args);
             break;
@@ -122,15 +124,19 @@ async function processCommand(message, args, command) {
 
         case "roles_permissions":
             client.commands.get('roles_permissions').execute(message, args); 
-            break; 
-
-        case "commands":
-            client.commands.get('commands').execute(message, args, Discord); 
-            break; 
+            break;  
 
         case "remove_role":
             client.commands.get('remove_role').execute(message, args);
             break; 
+
+        // Message Embeds 
+
+        case "commands":
+            client.commands.get('commands').execute(message, args, Discord); 
+            break;
+
+        // Music
 
         case "join_voice":
             client.commands.get('join_voice').execute(message, args); 
@@ -172,6 +178,8 @@ async function processCommand(message, args, command) {
             client.commands.get('queue_top').execute(message, args, servers);
             break;
 
+        // Schedule
+
         case "schedule_create":
             client.commands.get('schedule_create').execute(message, args, servers); 
             break; 
@@ -182,18 +190,6 @@ async function processCommand(message, args, command) {
 
         case "schedule_add":
             client.commands.get('schedule_add').execute(message, args, servers); 
-            break; 
-        
-        case "bug":
-            client.commands.get('bug').execute(message, args, servers); 
-            break;
-
-        case "bug_reports":
-            client.commands.get('bug_reports').execute(message, args, servers, Discord, client); 
-            break;
-
-        case "trivia_sports":
-            client.commands.get('trivia_sports').execute(message, args, fetch); 
             break; 
 
         case "schedule_remove":
@@ -206,10 +202,26 @@ async function processCommand(message, args, command) {
 
         case "class":
             client.commands.get('class').execute(message, args, Discord); 
-            break; 
+            break;
+
+        // Bugs and Errors
         
-        case "trivia":
-            client.commands.get('trivia').execute(message, args, fetch, trivia);
+        case "bug":
+            client.commands.get('bug').execute(message, args, servers); 
+            break;
+
+        case "bug_reports":
+            client.commands.get('bug_reports').execute(message, args, servers, Discord, client); 
+            break;
+
+        // Trivia Section
+
+        case "trivia_random":
+            client.commands.get('trivia_random').execute(message, args, fetch, trivia);
+            break; 
+
+        case "trivia_sports":
+            client.commands.get('trivia_sports').execute(message, args, fetch); 
             break; 
         
         case "scoreboard":
@@ -221,6 +233,9 @@ async function processCommand(message, args, command) {
             client.commands.get('scoreboard').execute(message, args, trivia, Discord); 
             break; 
 
+
+        // Invalid Commands
+        
         default:
             message.channel.send("Not a valid command."); 
             break; 

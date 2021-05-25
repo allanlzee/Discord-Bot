@@ -1,10 +1,10 @@
 module.exports = {
-    name: 'trivia',
-    description: 'trivia questions',
+    name: 'trivia_random',
+    description: 'random trivia questions', 
 
     async execute(message, args, fetch, servers) {
         // Generate trivia prompts
-        const response = await fetch("https://opentdb.com/api.php?amount=15&category=21"); 
+        const response = await fetch("https://opentdb.com/api.php?amount=50"); 
         const api = await response.json(); 
 
         let length = api.results.length; 
