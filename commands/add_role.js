@@ -18,6 +18,9 @@ module.exports = {
         const functionalBot = "840319357627924590"; 
         const BETAbot = "840319423410733147"; 
         const closedBot = "840319468835176457";
+
+        const noob = "847125961609707560"; 
+        const master = "847125974336143380"; 
         
         if (message.member.roles.cache.has(admin)) {
             switch(newRole) {
@@ -52,7 +55,17 @@ module.exports = {
                     } else {
                         message.channel.send(`${newMember} already has this role.`); 
                     }
-                    break; 
+                    break;
+                
+                case 'master':
+                    if (!newMember.roles.cache.has(master)) {
+                        newMember.roles.add(master).catch(console.error);
+                        message.channel.send(`Added role Daily Master to ${newMember}`); 
+                    } else {
+                        message.channel.send(`${newMember} already has this role.`); 
+                    }
+                    break;
+                    
                 default:
                     message.channel.send(`Error: Cannot add role ${newRole} to ${newMember}`); 
                     break; 

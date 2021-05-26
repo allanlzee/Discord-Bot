@@ -23,6 +23,10 @@ let trivia = {
 
 }; 
 
+let daily = {
+
+}
+
 client.commands = new Discord.Collection(); 
 // client.messages = new Discord.Collection(); 
 
@@ -252,6 +256,16 @@ async function processCommand(message, args, command) {
         // Message Handling
         case "clear_chat":
             client.commands.get('clear_chat').execute(message, args); 
+            break; 
+
+        // Daily Points
+        case "daily":
+            client.commands.get('daily').execute(message, args, daily, client, Discord, author);
+
+            if (daily[author.user] > 100) {
+                client.commands.get('add_role').execute(author.user,  [author.user, "master"]); 
+                message.channel.send(`${author.user} is now a Daily Master!`); 
+            }
             break; 
 
         // Invalid Commands
