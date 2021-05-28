@@ -36,6 +36,8 @@ const functionalBot = "840319357627924590";
 const BETAbot = "840319423410733147"; 
 const closedBot = "840319468835176457";
 const admin = "840332334753382481";  
+const noob = "847125961609707560"; 
+const master = "847125974336143380"; 
  
 const commandFiles = fs.readdirSync(`./commands`).filter(file => file.endsWith('.js')); 
 for (const file of commandFiles) {
@@ -78,7 +80,6 @@ client.on('message', async (message) => {
         processCommand(message, args, command); 
     }
 });
-
 
 async function processCommand(message, args, command) {
 
@@ -276,4 +277,3 @@ async function processCommand(message, args, command) {
 }
 
 client.login(config.token); 
-// Regenerate Token Frequently
