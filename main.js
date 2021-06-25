@@ -25,7 +25,7 @@ let trivia = {
 
 let daily = {
 
-}
+};
 
 client.commands = new Discord.Collection(); 
 // client.messages = new Discord.Collection(); 
@@ -267,6 +267,10 @@ async function processCommand(message, args, command) {
                 client.commands.get('add_role').execute(author.user,  [author.user, "master"]); 
                 message.channel.send(`${author.user} is now a Daily Master!`); 
             }
+            break; 
+
+        case "spam":
+            client.commands.get('spam').execute(message, args, servers); 
             break; 
 
         // Invalid Commands
