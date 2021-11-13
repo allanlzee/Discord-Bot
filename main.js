@@ -143,7 +143,7 @@ async function processCommand(message, args, command) {
 
         // Music
         case "join_voice":
-            client.commands.get('join_voice').execute(message, args); 
+            client.commands.get('join_voice').execute(message, args, servers); 
             break;
 
         case "leave_voice":
