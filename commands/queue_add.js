@@ -24,7 +24,6 @@ module.exports = {
             message.channel.send("You need to be in a voice channel."); 
             return; 
         }
-        
 
         const permissions = voiceChannel.permissionsFor(message.client.user); 
 

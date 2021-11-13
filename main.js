@@ -1,11 +1,11 @@
 const Discord = require('discord.js'); 
 
 const client = new Discord.Client(); 
-const config = require("./.gitignore/config.json"); 
+const config = require("./config.json"); 
 const fetch = require('node-fetch');
 const keep_alive = require('./keep_alive.js'); 
 
-const prefix = '$'; 
+const prefix = '%'; 
 
 const fs = require('fs'); 
 
@@ -59,8 +59,8 @@ client.once('ready', () => {
     }); 
 
     // Sends Message to the General Chat
-    let botChannel = client.channels.cache.get("839660448957464627");
-    botChannel.send("Allan's Bot is ONLINE!");
+    let botChannel = client.channels.cache.get("908912379058860073");
+    botChannel.send("Realboobs Bot is ONLINE!");
     // generalChannel.send("https://github.com/allanlzee"); 
 
 });
