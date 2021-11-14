@@ -182,6 +182,10 @@ async function processCommand(message, args, command) {
         case "queue_skip":
             client.commands.get('queue_skip').execute(message, servers);
             break;
+        
+        case "queue_clear":
+            client.commands.get('queue_clear').execute(message, servers);
+            break; 
 
         // Schedule
         case "schedule_create":

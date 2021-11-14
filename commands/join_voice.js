@@ -35,7 +35,6 @@ module.exports = {
             return; 
         } 
 
-        let connection = await voiceChannel.join(); 
         message.channel.send("Joining Channel! 🤠 "); 
 
         const videoFinder = async (query) => {
@@ -57,9 +56,8 @@ module.exports = {
               .on("finish", () => {
 
               if (servers.queue.length != 0) {
-                new_args = servers.queue[0];
                 servers.queue.shift();
-                playVideo(new_args, new_connection);
+                playVideo();
               }
                 
             });
