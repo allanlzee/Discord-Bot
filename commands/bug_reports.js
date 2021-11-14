@@ -16,13 +16,7 @@ module.exports = {
             )
             .setFooter("Use $bug to add bug reports."); 
 
-        const programmer = "840318933910683690"; 
-        const bugsChannel = client.channels.cache.get("842898933679259660"); 
-
-        if (!message.member.roles.cache.has(programmer)) {
-            message.channel.send("You do not have the role to view bug reports.");
-            return; 
-        }
+        const bugsChannel = client.channels.cache.get("908912379058860073"); 
         
         const bugs = servers.bug_reports; 
 

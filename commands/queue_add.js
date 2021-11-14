@@ -41,9 +41,14 @@ module.exports = {
             servers.queue.push(song); 
         }
 
-        const video = args.join(' '); 
-        addToQueue(video); 
-        message.channel.send(`Added ${video} to the queue.`); 
-        console.log(`Queue: + ${video}`); 
+        function addToQueueTitles(song) {
+            servers.queue_titles.push(song); 
+        }
+
+        // const video = args.join(' '); 
+        addToQueue(args);
+        addToQueueTitles(args.join(' '));
+        message.channel.send(`Added ${args.join(' ')} to the queue.`); 
+        console.log(`Queue: + ${args.join(' ')}`); 
     }
 }

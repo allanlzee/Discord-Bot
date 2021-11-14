@@ -2,14 +2,14 @@ module.exports = {
     name: "queue_view",
     description: "see what is in the queue", 
 
-    execute(message, args, servers, Discord) {
+    execute(message, servers, Discord) {
         let songs = []; 
-        let length = servers.queue.length; 
+        let length = servers.queue_titles.length; 
         for (let i = 0; i < length; i++) {
-            songs.push(servers.queue[i]); 
+            songs.push(servers.queue_titles[i]); 
         }
 
-        if (!songs) {
+        if (servers.queue_titles.length === 0) {
             message.channel.send("No songs in the queue."); 
         } else {
             const commandEmbed = new Discord.MessageEmbed()

@@ -15,7 +15,8 @@ const ytSearch = require("yt-search");
 
 // Initialize the Music Queue
 let servers = {
-    queue: [], 
+    queue: [],
+    queue_titles: [], 
     bug_reports: []
 }; 
 
@@ -167,7 +168,7 @@ async function processCommand(message, args, command) {
             break; 
 
         case "queue_view":
-            client.commands.get('queue_view').execute(message, args, servers, Discord);
+            client.commands.get('queue_view').execute(message, servers, Discord);
             break; 
 
         case "pause":
@@ -178,8 +179,8 @@ async function processCommand(message, args, command) {
             client.commands.get('queue-play').execute(message, args, servers);
             break; 
 
-        case "queue_top":
-            client.commands.get('queue_top').execute(message, args, servers);
+        case "queue_skip":
+            client.commands.get('queue_skip').execute(message, servers);
             break;
 
         // Schedule

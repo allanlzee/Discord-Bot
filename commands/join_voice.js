@@ -35,7 +35,7 @@ module.exports = {
             return; 
         } 
 
-        const connection = await voiceChannel.join(); 
+        let connection = await voiceChannel.join(); 
         message.channel.send("Joining Channel! 🤠 "); 
 
         const videoFinder = async (query) => {
@@ -44,19 +44,24 @@ module.exports = {
             return (videoResult.videos.length > 1) ? videoResult.videos[0] : null;
         }
 
+      async function playVideo() {
+        let new_connection = await voiceChannel.join(); 
+        let args = servers.queue[0];
         
-        async function playVideo(args, connection) {
           const video = await videoFinder(args.join(' '));
 
           if (video) {
             const stream = ytdl(video.url, { filter: "audioonly" });
 
-            connection.play(stream, { seek: 0, volume: 1 }).on("finish", () => {
+            new_connection.play(stream, { seek: 0, volume: 1 })
+              .on("finish", () => {
+
               if (servers.queue.length != 0) {
                 new_args = servers.queue[0];
                 servers.queue.shift();
-                playVideo(new_args, connection);
-              } 
+                playVideo(new_args, new_connection);
+              }
+                
             });
               
             await message.reply(`▶️ Now Playing ***${video.title}***`);
@@ -65,7 +70,8 @@ module.exports = {
             message.channel.send("No video results found."); 
           }
         }
-
-        playVideo(args, connection)
+      
+        servers.queue.push(args)
+        playVideo(); 
     }
 }
