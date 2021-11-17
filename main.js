@@ -29,7 +29,6 @@ let daily = {
 };
 
 client.commands = new Discord.Collection(); 
-// client.messages = new Discord.Collection(); 
 
 // Role IDs: use \@ROLE to get the ID from the Discord message box
 const programmer = "840318933910683690"; 
