@@ -20,7 +20,7 @@ let servers = {
   bug_reports: [],
   
   // Deal with variable changes to the queue. 
-  queueInternal: servers.queue,
+  /* queueInternal: servers.queue,
   queueListener: function (val) {},
   set queue(value) {
     this.queueInternal = value;
@@ -31,7 +31,7 @@ let servers = {
   },
   registerListener: function (listener) {
     this.queueListener = listener;
-  },
+  }, */
 };
 
 
