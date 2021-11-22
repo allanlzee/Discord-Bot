@@ -1,6 +1,3 @@
-const ytdl = require('ytdl-core'); 
-const ytSearch = require('yt-search'); 
-
 module.exports = {
     name: "queue_add",
     description: "adds a song to an existing queue",

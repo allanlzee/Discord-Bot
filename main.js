@@ -15,10 +15,25 @@ const ytSearch = require("yt-search");
 
 // Initialize the Music Queue
 let servers = {
-    queue: [],
-    queue_titles: [], 
-    bug_reports: []
-}; 
+  queue: [],
+  queue_titles: [],
+  bug_reports: [],
+  
+  // Deal with variable changes to the queue. 
+  queueInternal: servers.queue,
+  queueListener: function (val) {},
+  set queue(value) {
+    this.queueInternal = value;
+    this.queueListener(value);
+  },
+  get queue() {
+    return this.queueInternal;
+  },
+  registerListener: function (listener) {
+    this.queueListener = listener;
+  },
+};
+
 
 let trivia = {
 
@@ -60,10 +75,10 @@ client.once('ready', () => {
     }); 
 
     // Sends Message to the General Chat
-    let botChannel = client.channels.cache.get("908912379058860073");
-    botChannel.send("Realboobs Bot is ONLINE!");
+    // let botChannel = client.channels.cache.get("908912379058860073");
+    let botChannel = client.channels.cache.get("909320880348360760");
+    botChannel.send("Bot is ONLINE!");
     // generalChannel.send("https://github.com/allanlzee"); 
-
 });
 
 client.on('message', async (message) => {
@@ -144,7 +159,7 @@ async function processCommand(message, args, command) {
 
         // Music
         case "join_voice":
-            client.commands.get('join_voice').execute(message, args, servers); 
+            client.commands.get('join_voice').execute(message, args, servers);
             break;
 
         case "leave_voice":
@@ -164,7 +179,8 @@ async function processCommand(message, args, command) {
             break;
 
         case "queue_add":
-            client.commands.get('queue_add').execute(message, args, servers); 
+            client.commands.get('queue_add').execute(message, args, servers);
+            client.commands.get("play_updated_queue").execute(servers);
             break; 
 
         case "queue_view":

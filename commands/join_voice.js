@@ -5,7 +5,7 @@ module.exports = {
     name: 'join_voice',
     decription: "joins a voice channel",
     
-    async execute(message, args, servers) {
+  async execute(message, args, servers) {
         const voiceChannel = message.member.voice.channel; 
 
         if (!voiceChannel) {
@@ -44,7 +44,14 @@ module.exports = {
         }
 
       async function playVideo() {
-        let new_connection = await voiceChannel.join(); 
+        let new_connection = await voiceChannel.join();
+        
+        if (servers.queue.length === 0) {
+          await voiceChannel.leave()
+          message.channel.send("There are no more songs in the queue, leaving voice channel.")
+          return
+        }
+
         let args = servers.queue[0];
         
           const video = await videoFinder(args.join(' '));

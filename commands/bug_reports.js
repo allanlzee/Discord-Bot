@@ -15,8 +15,6 @@ module.exports = {
                 // If schedule is undefined, the program will crash
             )
             .setFooter("Use $bug to add bug reports."); 
-
-        const bugsChannel = client.channels.cache.get("908912379058860073"); 
         
         const bugs = servers.bug_reports; 
 
@@ -36,7 +34,7 @@ module.exports = {
             )
             .setFooter("Use $bug to add bug reports."); 
 
-            bugsChannel.send(commandEmbed);
+            message.channel.send(commandEmbed);
             message.channel.send("Report issued. Check channel bot-bugs for more information."); 
         }
     }
